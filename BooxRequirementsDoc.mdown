@@ -1,0 +1,64 @@
+Create a database for book management and allow users to be able to contribute and swap books
+
+
+bookswap
+
+this software will do the following
+-- Be a central library for an organizations book library 
+-- Allow users to checkout books
+-- Keeep track of the books in the library and checked out
+-- Allow users to contribute books to the library
+-- Have a system to charge and repurchase books that are not returned
+-- allow adminstration managers with library management rights
+
+
+
+
+# Requirements Document
+
+### Elevator Speech
+(2 to 3 sentences about what the prodcut does)
+  <p>Bookswap will allow an organization to manage a library of books available to its members for loans and any contributions made.  Will allow users to contribute and trade books with other users.</p>
+
+
+
+### MVP Features
+- Admin users with management controls
+- User creation and login to view and checkout books
+- add books
+- checkout books with scheduled due dates
+- reserve book that is currently checked out
+- renew loan if book is not reserved
+- user can post book for swap
+- user can browse seperate books that are available for swapping
+
+
+### MVP Stories
+
+
+
+### Technologies
+### Wireframes
+### Roadmap (additional features)
+- user can leave book reviews
+- users can vote for new books to be added to the library
+
+
+## User Story Template
+### Value Statement
+As a \<type of user \>
+I want to \<to perform task\>
+so that I can \<achieve some goal/benefit/value\>
+
+### Assumptions
+We can assume that we know what coures we are going to add
+the pages are protected and only the admin can edit
+
+### Acceptance
+(this is the criteria by which you measure completion of the project)
+
+
+### Notes or unknowns
+
+
+
