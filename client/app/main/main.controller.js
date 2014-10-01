@@ -49,7 +49,8 @@ angular.module('booxApp')
         dateAdded: new Date(),
         genre: $scope.newBook.genre,
         available: true,
-        reservedBy: "Available"
+        reservedBy: 'Available',
+        status: 'Available'
       });
       $scope.newBook = '';
     };
@@ -66,7 +67,7 @@ angular.module('booxApp')
     $scope.unReserveBook = function(book) {
       $http.put('/api/books/' + book._id, {
         available: true,
-        reservedBy: "Available",
+        reservedBy: 'Available',
         status: 'Available',
         dueDate: null
       });

@@ -12,7 +12,7 @@ angular.module('booxApp')
       	controller: 'bookCtrl'
       })
       .when('/bookEdit/:id', {
-        templateUrl: 'app/bookRoute/bookDetail.html',
+        templateUrl: 'app/bookRoute/bookEdit.html',
         controller: 'bookCtrl'
       });
   });

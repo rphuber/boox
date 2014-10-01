@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 		      <div class="col-sm-12 col-md-12">
-		        <div class="thumbnail">
+		        <div class="thumbnail bg-warning">
 		          <div class="caption">
 		            <h2>{{ book.name }}</h2>
 		            <h3>{{ book.author }}</h3>
@@ -20,7 +20,7 @@
 		            	<dt>Added to Library:</dt>
 		            	<dd>{{ book.dateAdded | date: 'mediumDate' }}</dd>
 		            </dl>
-		            <p><a href="#/bookEdit/{{books.indexOf(book)}}" class="btn btn-default" role="button">Edit</a></p>
+		            <p class="col-sm-offset-11"><a href="#/bookEdit/{{books.indexOf(book)}}" class="btn btn-default" role="button">Edit</a></p>
 		          </div>
 		        </div>
 		      </div>

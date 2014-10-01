@@ -45,7 +45,8 @@
               <a href="/book/{{books.indexOf(book)}}" class="info">
                 <span class="glyphicon glyphicon-info-sign pull-right"></span>
               </a>
-              <span class="due" ng-hide="{{book.reservedBy == getCurrentUser().name || book.reservedBy == 'Available' }}">Due: {{book.dueDate | date:'mediumDate'}}</span>
+              <span class="due" ng-hide="{{book.reservedBy == getCurrentUser().name || book.status == 'Available' || book.status == 'Reserved'}}">Due: {{book.dueDate | date:'mediumDate'}}</span>
+              <span class="reserved" ng-show="{{ book.status == 'Reserved' }}">{{book.status}}</span>
           </li>
         </ul> 
       </div>

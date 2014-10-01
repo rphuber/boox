@@ -37,7 +37,7 @@ angular.module('booxApp')
         dateAdded: new Date(),
         genre: $scope.newBook.genre,
         available: true,
-        reservedBy: "Available"
+        reservedBy: 'Available'
       });
       $scope.newBook = '';
     };
@@ -49,7 +49,7 @@ angular.module('booxApp')
     $scope.unReserveBook = function(book) {
       $http.put('/api/books/' + book._id, {
         available: true,
-        reservedBy: "Available",
+        reservedBy: 'Available',
         status: 'Available',
         dueDate: null
       });
@@ -60,8 +60,8 @@ angular.module('booxApp')
       $http.put('/api/books/' + book._id, {
         status: 'checkedOut',
         checkedOutBy: $scope.getCurrentUser().name,
-        dueDate: new Date (+ new Date + 12096e5)
-      })
+        dueDate: new Date (+ new Date() + 12096e5)
+      });
     };
 
     $scope.checkInBook = function(book) {
@@ -72,7 +72,7 @@ angular.module('booxApp')
         checkedOutBy: null,
         dueDate: null,
         available: true
-      })
+      });
     };
 
   });

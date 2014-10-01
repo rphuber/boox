@@ -22,27 +22,27 @@
 	        		<a ng-click="deleteBook(book)" class="trash">
 	        			<span class="glyphicon glyphicon-trash pull-right"></span>
 	        		</a>
-	        		<a ng-click="deleteBook(book)" class="info">
+	        		<a href="/book/{{books.indexOf(book)}}" class="info">
 	        			<span class="glyphicon glyphicon-info-sign pull-right"></span>
 	        		</a>
 	    		</li>
  	 		</ul>
     	</div>
   	</div>
-
-  	<form class="book-form">
-    	<label>Add books to the library</label>
-  			<p class="input-group">
-  				<input type="text" class="form-control" placeholder="Book Title" ng-model="newBook.name">
-  		    	<input type="text" class="form-control" placeholder="Book Author" ng-model="newBook.author">
-  		    	<input type="text" class="form-control" placeholder="Book Info" ng-model="newBook.info">
-  		    	<input type="date" class="form-control" placeholder="Book Publication Date" ng-model="newBook.publishedDate">
-  		    	<input type="text" class="form-control" placeholder="Book Genre" ng-model="newBook.genre">
-  		
-  				<p class="input-group-btn">
-  		    		<button type="submit" class="btn btn-primary" ng-click="addBook()">Add Book</button>
-  				</p>
-  			</p>
-  	</form>
-
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="list-group">
+          <label>Add books to the library</label>
+          <input type="text" class="form-control list-group-item" placeholder="Book Title" ng-model="newbook.name">
+          <input type="text" class="form-control list-group-item" placeholder="Book Author" ng-model="newBook.author">
+          <input type="text" class="form-control list-group-item" placeholder="Book Info" ng-model="newBook.info">
+          <input type="date" class="form-control list-group-itme" placeholder="Book Publication Date - mm/dd/yyyy" ng-model="newBook.publishedDate">
+          <input type="text" class="form-control list-group-item" placeholder="Category" ng-model="newBook.genre">
+				  <p class="input-group-btn">
+		    		<button type="submit" class="btn btn-primary" ng-click="addBook()">Add Book</button>
+				  </p>
+        </form>
+      </div>
+    </div>
 </div>
