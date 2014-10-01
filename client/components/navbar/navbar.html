@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+<div class="navbar navbar-inverse navbar-default navbar-static-top" ng-controller="NavbarCtrl">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -15,6 +15,7 @@
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+        <li ng-show="isAdmin()" ng-class="{active: isActive('/adminFulfill')}"><a href="/adminFulfill">Manage Requests</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

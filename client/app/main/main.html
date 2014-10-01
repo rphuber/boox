@@ -1,60 +1,53 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>welcome to boox!</h1>
-    <p class="lead">your online library and swap meet</p>
-  </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
-      </ul>
+  <header class="hero-unit" id="banner">
+    <div class="container title-container">
+      <h1>welcome to boox!</h1>
+      <p class="lead">your online library and book swap</p>
     </div>
-  </div>
+  </header>
 
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
+    <div class="col-md-12">  
+      <div class="col-md-5 col-md-offset-1 col-md-push-6">
+        <h1 class="page-header">Your Checkouts:</h1>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="book in books | orderBy: 'status' : reverse" ng-hide="{{book.reservedBy !== getCurrentUser().name}}">
+            <span tooltip="{{book.status}}">{{book.name}}</span>
+            <br>
+              <span ng-hide="{{book.status == 'checkedOut'}}" class="text-muted">{{book.status}}</span>
+              <span ng-show="{{book.status == 'checkedOut'}}" class="text-muted">Due: {{book.dueDate | date: 'mediumDate'}}</span>
+              <a ng-click="reserveBook(book)" class="add" ng-show="{{book.available}}">
+                <span class="glyphicon glyphicon-plus pull-right"></span>
+              </a>
+              <a ng-click="unReserveBook(book)" class="remove" ng-hide="{{book.status == 'checkedOut' }}">
+                <span class="glyphicon glyphicon-minus pull-right"></span>
+              </a>
+              <a href="/book/{{books.indexOf(book)}}" class="info">
+                <span class="glyphicon glyphicon-info-sign pull-right"></span>
+              </a>
+              <span class="close" ng-hide="{{book.reservedBy == getCurrentUser().name || book.reservedBy == 'Available' }}">Unavailable</span>
+          </li>
+        </ul> 
+      </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">books:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="book in books">
-        <li><a href="#" tooltip="{{book.info}}">{{book.name}}<button type="button" class="close" ng-click="deleteBook(book)">&times;</button></a></li>
-      </ul>
+      <div class="col-md-6 col-md-pull-6"><h1 class="page-header">Library Books:</h1>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="book in books | orderBy: 'name' : reverse" ng-hide="{{book.reservedBy == getCurrentUser().name}}">
+            <span tooltip="{{book.status}}">{{book.name}}</span>
+            <br>
+              <span class="text-muted">{{book.genre}}</span>
+              <a ng-click="reserveBook(book)" class="add" ng-show="{{book.available}}">
+                <span class="glyphicon glyphicon-plus pull-right"></span>
+              </a>
+              <a ng-click="unReserveBook(book)" class="remove" ng-show="{{book.reservedBy == getCurrentUser().name }}">
+                <span class="glyphicon glyphicon-minus pull-right"></span>
+              </a>
+              <a href="/book/{{books.indexOf(book)}}" class="info">
+                <span class="glyphicon glyphicon-info-sign pull-right"></span>
+              </a>
+              <span class="due" ng-hide="{{book.reservedBy == getCurrentUser().name || book.reservedBy == 'Available' }}">Due: {{book.dueDate | date:'mediumDate'}}</span>
+          </li>
+        </ul> 
+      </div>
     </div>
-  </div>
 
-  <form class="book-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new book Title here." ng-model="newBook.name">
-      <input type="text" class="form-control" placeholder="Add a new book Author here." ng-model="newBook.author">
-      <input type="text" class="form-control" placeholder="Add a new book Info here." ng-model="newBook.info">
-      <input type="date" class="form-control" placeholder="Add a new book pub date here." ng-model="newBook.publishedDate">
-      <input type="text" class="form-control" placeholder="Add a new book genre here." ng-model="newBook.genre">
-
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addBook()">Add New</button>
-      </span>
-    </p>
-  </form>
-
-</div>
-
-<footer class="footer">
-  <div class="container">
-     
-  </div>
-</footer>

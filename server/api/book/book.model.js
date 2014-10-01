@@ -10,7 +10,11 @@ var BookSchema = new Schema({
   publishedDate: Date,
   dateAdded: Date,
   genre: String,
-  available: Boolean
+  available: Boolean,
+  reservedBy: String,
+  checkOutBy: String,
+  status: String,
+  dueDate: Date
 });
 
 module.exports = mongoose.model('Book', BookSchema);

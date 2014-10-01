@@ -5,6 +5,14 @@ angular.module('booxApp')
     $routeProvider
       .when('/books', {
         templateUrl: 'app/bookRoute/bookRoute.html',
-        controller: 'BookrouteCtrl'
+        controller: 'bookCtrl'
+      })
+      .when('/book/:id', {
+      	templateUrl: 'app/bookRoute/bookDetail.html',
+      	controller: 'bookCtrl'
+      })
+      .when('/bookEdit/:id', {
+        templateUrl: 'app/bookRoute/bookDetail.html',
+        controller: 'bookCtrl'
       });
   });

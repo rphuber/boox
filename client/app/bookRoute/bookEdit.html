@@ -1,0 +1,28 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+	<div class="container">
+		<div class="row">
+		      <div class="col-sm-12 col-md-12">
+		        <div class="thumbnail">
+		          <div class="caption">
+		            <h2>{{ book.name }}</h2>
+		            <h3>{{ book.author }}</h3>
+		            <h4>Category: {{ book.genre }}</h4>
+		            <p>{{ book.info }}</p>
+		      		<dl class="dl-horizontal">
+		            	<dt>Availability:</dt>
+		            	<dd>{{ book.status }}</dd>
+		            	<dt>Publication date</dt> 
+		            	<dd>{{ book.publishedDate | date:'mediumDate' }}</dd>
+		            	<dt>Added to Library:</dt>
+		            	<dd>{{ book.dateAdded | date: 'mediumDate' }}</dd>
+		            	<dt>Added to Library:</dt>
+		            	<dd>{{ book.dateAdded | date: 'mediumDate' }}</dd>
+		            </dl>
+		            <p><a href="#/bookEdit/{{book_.id}}" class="btn btn-default" role="button">Edit</a></p>
+		          </div>
+		        </div>
+		      </div>
+		</div>
+	</div>

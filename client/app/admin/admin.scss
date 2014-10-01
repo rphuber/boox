@@ -1,1 +1,11 @@
 .trash { color:rgb(209, 91, 71); }
+
+.form-control:last-child {
+	border-top-right-radius: 0;
+	border-top-left-radius: 0; 
+}
+
+.form-control:first-child {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0; 
+}

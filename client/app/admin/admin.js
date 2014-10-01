@@ -6,5 +6,9 @@ angular.module('booxApp')
       .when('/admin', {
         templateUrl: 'app/admin/admin.html',
         controller: 'AdminCtrl'
+      })
+      .when('/adminFulfill', {
+      	templateUrl: 'app/admin/adminFulfill.html',
+      	controller: 'AdminCtrl'
       });
   });

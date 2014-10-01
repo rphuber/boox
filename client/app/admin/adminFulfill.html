@@ -1,0 +1,38 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+    	<div class="col-lg-12">
+      		<h1 class="page-header">Reserved Books:</h1>
+      		<p>Check out any reserved books</p>
+  			<ul class="list-group">
+	   	 		<li class="list-group-item" ng-repeat="book in books" ng-if="book.status == 'Reserved'">
+	        		<strong>{{book.name}}</strong>
+	        		<br>
+	        		<span class="text-muted">Reserved By: {{book.reservedBy}}</span>
+	        		<a ng-click="unReserveBook(book)" class="trash">
+	        			<span class="glyphicon glyphicon-minus pull-right"></span>
+	        		</a>
+	        		<a ng-click="checkOutBook(book)" class="info">
+	        			<span class="glyphicon glyphicon-log-out pull-right"></span>
+	        		</a>
+	    		</li>
+ 	 		</ul>
+    	</div>
+
+    	<div class="col-lg-12">
+      		<h1 class="page-header">Returned Books:</h1>
+      		<p>Check in returned books</p>
+  			<ul class="list-group">
+	   	 		<li class="list-group-item" ng-repeat="book in books" ng-if="book.status == 'checkedOut'">
+	        		<strong>{{book.name}}</strong>
+	        		<br>
+	        		<span class="text-muted">Due By: {{book.dueDate | date:'mediumDate'}}</span>
+	        		<a ng-click="checkInBook(book)" class="info">
+	        			<span class="glyphicon glyphicon-log-in pull-right"></span>
+	        		</a>
+	    		</li>
+ 	 		</ul>
+    	</div>
+	</div>
+</div>

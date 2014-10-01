@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('booxApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($scope, $http, $location, socket, Auth) {
+
     $scope.awesomeThings = [];
+
+    $scope.getCurrentUser = Auth.getCurrentUser;
+
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -26,6 +30,7 @@ angular.module('booxApp')
     });
 
     $scope.books = [];
+
     $http.get('/api/books').success(function(books) {
       $scope.books = books;
       socket.syncUpdates('book', $scope.books);
@@ -35,6 +40,7 @@ angular.module('booxApp')
       if($scope.newBook === '') {
         return;
       }
+      
       $http.post('/api/books', {
         name: $scope.newBook.name,
         author: $scope.newBook.author,
@@ -42,13 +48,44 @@ angular.module('booxApp')
         publishedDate: $scope.newBook.publishedDate,
         dateAdded: new Date(),
         genre: $scope.newBook.genre,
-        available: true
+        available: true,
+        reservedBy: "Available"
       });
       $scope.newBook = '';
+    };
+
+    $scope.reserveBook = function(book) {
+
+      $http.put('/api/books/' + book._id, {
+        available: false,
+        reservedBy: $scope.getCurrentUser().name,
+        status: 'Reserved'
+      });
+    };
+
+    $scope.unReserveBook = function(book) {
+      $http.put('/api/books/' + book._id, {
+        available: true,
+        reservedBy: "Available",
+        status: 'Available',
+        dueDate: null
+      });
     };
 
     $scope.deleteBook = function(book) {
       $http.delete('/api/books/' + book._id);
     };
+
+    $scope.go = function ( path ) {
+      $location.path( path );
+    };
+
+
+    // $http.delete('/api/books/' + book._id);
+
+
+    $scope.$on('$destroy', function () {
+      socket.unsyncUpdates('book');
+    });
 
   });

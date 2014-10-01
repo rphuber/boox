@@ -2,10 +2,16 @@
 
 angular.module('booxApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+    $scope.menu = [
+      {
+        'title': 'Home',
+        'link': '/'
+      },
+      {
+        'title': 'Swaps',
+        'link': '/swaps'
+      }
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
