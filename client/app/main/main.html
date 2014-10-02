@@ -31,8 +31,14 @@
       </div>
 
       <div class="col-md-6 col-md-pull-6"><h1 class="page-header">Library Books:</h1>
+        <ul class="nav nav-pills nav-justified" ng-init="reverse = !reverse">
+          <li><a href="#" ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
+          <li><a href="#" ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
+          <li><a href="#" ng-click="predicate = 'status'; reverse = !reverse">Status</a></li>
+        </ul>
+        <br>
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="book in books | orderBy: 'name' : reverse" ng-hide="{{book.reservedBy == getCurrentUser().name}}">
+          <li class="list-group-item" ng-repeat="book in books | orderBy: predicate :reverse" ng-hide="{{book.reservedBy == getCurrentUser().name}}">
             <span tooltip="{{book.status}}">{{book.name}}</span>
             <br>
               <span class="text-muted">{{book.genre}}</span>

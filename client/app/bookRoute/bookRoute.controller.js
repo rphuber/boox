@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('booxApp')
-  .controller('bookCtrl', function ($scope, $http, $routeParams, socket) {
+  .controller('bookCtrl', function ($scope, $http, $routeParams, $location, socket) {
   	var bookId = $routeParams.id;
 
   	$scope.books = [];
@@ -12,7 +12,20 @@ angular.module('booxApp')
       socket.syncUpdates('book', $scope.books);
     });
 
-  
+    // $scope.updateBook = function(book) {
+
+    //   $http.put('/api/books/' + book._id, book);
+
+    // };
+
+    $scope.updateBook = function(book, bookIndex) {
+
+      $http.put('/api/books/' + book._id, book);
+      $location.path( '/admin');
+    };
+
+
+
   //   $scope.getCurrentUser = Auth.getCurrentUser;
 
   //   $scope.books = [];
