@@ -20,7 +20,10 @@
 		            	<dt>Added to Library:</dt>
 		            	<dd>{{ book.dateAdded | date: 'mediumDate' }}</dd>
 		            </dl>
-		            <p class="col-sm-offset-11"><a href="#/bookEdit/{{books.indexOf(book)}}" class="btn btn-default" role="button">Edit</a></p>
+					<p class="col-sm-offset-10">
+						<a href="#/" class="btn btn-default" role="button">Return</a>
+						<a ng-show="isAdmin()" href="#/bookEdit/{{books.indexOf(book)}}" class="btn btn-default" role="button">Edit</a>
+					</p>
 		          </div>
 		        </div>
 		      </div>
