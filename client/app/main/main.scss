@@ -49,11 +49,19 @@
 }
 
 .add { 
-    color:rgb(119, 242, 114); 
+    color: #1AAF5D;
+}
+
+.add:hover {
+    color: #305E3B;
 }
 
 .remove { 
-    color:rgb(209, 91, 71); 
+    color: #EE2B31; 
+}
+
+.remove:hover {
+    color: #A21D21;
 }
 
 .due {
