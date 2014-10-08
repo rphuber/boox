@@ -15,23 +15,18 @@
             <span>{{book.name}}</span>
             <br>
               <span class="text-muted">{{book.status}}</span>
-              <a ng-click="reserveBook(book)" class="add" ng-show="{{book.available}}">
-                <span class="glyphicon glyphicon-plus pull-right"></span>
-              </a>
-              <a ng-click="unReserveBook(book)" class="remove" ng-hide="{{book.status == 'checkedOut' }}">
+              <a ng-click="deleteSwapBook(book)" class="remove">
                 <span class="glyphicon glyphicon-minus pull-right"></span>
               </a>
-              <a href="/book/{{books.indexOf(book)}}" class="info">
+              <a href="/bookswap/{{swapBooks.indexOf(book)}}" class="info">
                 <span class="glyphicon glyphicon-info-sign pull-right"></span>
               </a>
           </li>
         </ul> 
-        <p>
-          <a href="/bookswapAdd" class="btn btn-success right" role="button">
+          <a href="/bookswapAdd" class="btn btn-success" role="button">
             <span class="glyphicon glyphicon-plus"></span>
             Add Book
           </a>
-        </p>
       </div>
 
       <div class="col-md-6 col-md-pull-6" ng-show="isLoggedIn()"><h1 class="page-header">Available for swapping:</h1>

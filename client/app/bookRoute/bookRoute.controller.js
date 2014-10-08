@@ -26,6 +26,24 @@ angular.module('booxApp')
       $location.path( '/admin');
     };
 
+    $scope.addBook = function() {
+      if($scope.newBook === '') {
+        return;
+      }
+      
+      $http.post('/api/books', {
+        name: $scope.newBook.name,
+        author: $scope.newBook.author,
+        info: $scope.newBook.info,
+        publishedDate: $scope.newBook.publishedDate,
+        dateAdded: new Date(),
+        genre: $scope.newBook.genre,
+        available: true,
+        status: 'Available',
+        reservedBy: 'Available'
+      });
+      $scope.newBook = '';
+    };
 
 
   //   $scope.getCurrentUser = Auth.getCurrentUser;
