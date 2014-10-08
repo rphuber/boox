@@ -1,0 +1,31 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+	<div class="container">
+		<div class="row">
+		      <div class="col-sm-12 col-md-12">
+		        <div class="thumbnail bg-warning">
+		          <div class="caption">
+		            <h2>{{ thisBook.name }}</h2>
+		            <h3>{{ thisBook.author }}</h3>
+		            <h4>Category: {{ thisBook.genre }}</h4>
+		            <p>{{ thisBook.info }}</p>
+		      		<dl class="dl-horizontal">
+		            	<dt>Availability:</dt>
+		            	<dd>{{ thisBook.status }}</dd>
+		            	<dt>Publication date</dt> 
+		            	<dd>{{ thisBook.publishedDate | date:'mediumDate' }}</dd>
+		            	<dt>Added to Library:</dt>
+		            	<dd>{{ thisBook.dateAdded | date: 'mediumDate' }}</dd>
+		            	<dt>Added to Library:</dt>
+		            	<dd>{{ thisBook.dateAdded | date: 'mediumDate' }}</dd>
+		            </dl>
+					<p class="col-sm-offset-10">
+						<a href="#/bookswap" class="btn btn-default" role="button">Return</a>
+						<a ng-show="isAdmin()" href="#/bookswapEdit/{{swapBooks.indexOf(thisBook)}}" class="btn btn-default" role="button">Edit</a>
+					</p>
+		          </div>
+		        </div>
+		      </div>
+		</div>
+	</div>

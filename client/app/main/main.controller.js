@@ -5,6 +5,8 @@ angular.module('booxApp')
 
     $scope.awesomeThings = [];
 
+    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
 

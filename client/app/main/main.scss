@@ -9,6 +9,14 @@
     letter-spacing: -1px;
 }
 
+.unknownMain {
+    @extend .jumbotron;
+    margin-left: 10%; 
+    margin-top: 10%;
+    width: 100%;
+    background-color: #D8CAA8;
+}
+
 .hero-unit {
     position: relative;
     padding: 30px 15px;
@@ -73,4 +81,9 @@
     float: right;
     margin-right: 10px;
     color:rgb(209, 91, 71);
+}
+
+.redirect {
+    margin-top: 15px;
+    margin-left: 7px;
 }

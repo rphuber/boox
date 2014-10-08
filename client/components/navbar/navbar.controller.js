@@ -6,10 +6,6 @@ angular.module('booxApp')
       {
         'title': 'Home',
         'link': '/'
-      },
-      {
-        'title': 'Swaps',
-        'link': '/swaps'
       }
     ];
 

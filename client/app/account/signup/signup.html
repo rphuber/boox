@@ -56,16 +56,16 @@
 
         <div class="form-group">
           <label>Phone</label>
-          <input type="number" class="form-control" ng-model="user.phone">
+          <input type="tel" class="form-control" ng-model="user.phone">
         </div>
 
         <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
+          <button class="btn btn-default btn-lg btn-login" type="submit">
             Sign up
           </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
-            Login
-          </a>
+           <p class="redirect">
+              <a href="/login">Already a Member?  Sign In Here...</a>
+           </p>
         </div>
 
         <!-- <div>

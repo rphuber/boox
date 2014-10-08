@@ -1,0 +1,15 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+	<div class="col-md-12">
+        <h1 class="page-header">Add books to swap:</h1>
+	    <form class="list-group">
+    		<input type="text" class="form-control list-group-item" placeholder="Book Title" ng-model="newBook.name">
+      		<input type="text" class="form-control list-group-item" placeholder="Book Author" ng-model="newBook.author">
+      		<input type="text" class="form-control list-group-item" placeholder="Book Info" ng-model="newBook.info">
+      		<input type="date" class="form-control list-group-itme" placeholder="Book Publication Date - mm/dd/yyyy" ng-model="newBook.publishedDate">
+      		<input type="text" class="form-control list-group-item" placeholder="Category" ng-model="newBook.genre">
+      		<p class="input-group-btn">
+        		<button type="submit" class="btn btn-primary" ng-click="addSwapBook(newBook)">Add Book</button>
+      		</p>
+    	</form>
+    </div>
