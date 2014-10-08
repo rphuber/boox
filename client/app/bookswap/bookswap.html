@@ -7,7 +7,7 @@
     </div>
   </header>
 
-<div class="col-md-12" ng-show="isLoggedIn()">  
+<div class="col-md-12">  
       <div class="col-md-5 col-md-offset-1 col-md-push-6">
         <h1 class="page-header">Your books to swap:</h1>
         <ul class="list-group">
@@ -29,7 +29,7 @@
           </a>
       </div>
 
-      <div class="col-md-6 col-md-pull-6" ng-show="isLoggedIn()"><h1 class="page-header">Available for swapping:</h1>
+      <div class="col-md-6 col-md-pull-6"><h1 class="page-header">Available for swapping:</h1>
         <ul class="nav nav-pills" ng-init="reverse = !reverse">
           <li><a href="" ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
           <li><a href="" ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
@@ -38,14 +38,11 @@
         <br>
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="book in swapBooks | orderBy: predicate :reverse | filter : { owner : '!' +getCurrentUser().name }" >
-            <span tooltip="{{book.status}}">{{book.name}}</span>
+            <span>{{book.name}}</span>
             <br>
-              <span class="text-muted">{{book.genre}}</span>
+              <span class="text-muted">{{book.status}}</span>
               <a ng-click="swapABook(book)" class="add" ng-show="{{book.available}}">
                 <span class="glyphicon glyphicon-plus pull-right"></span>
-              </a>
-              <a ng-click="unSwapBook(book)" class="remove" ng-hide="{{book.status == 'checkedOut' }}">
-                <span class="glyphicon glyphicon-minus pull-right"></span>
               </a>
               <a href="/bookswap/{{swapBooks.indexOf(book)}}" class="info">
                 <span class="glyphicon glyphicon-info-sign pull-right"></span>
