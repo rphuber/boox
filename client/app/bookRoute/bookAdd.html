@@ -2,17 +2,28 @@
 
 
 
-<div class="container">
-  <div class="row">
-        <div class="col-lg-12">
+<div class="container-rh">
+  <div class="row-rh">
+        <div class="col-12">
           <form class="list-group">
-            <label>Add books to the library</label>
+            <h3>Add books to the library</h3>
+            <br>
+            <label for="">Book Title</label>
             <input type="text" class="form-control list-group-item" placeholder="Book Title" ng-model="newBook.name">
+                        <br>
+            <label for="">Book Author</label>
             <input type="text" class="form-control list-group-item" placeholder="Book Author" ng-model="newBook.author">
+                        <br>
+            <label for="">Book Info</label>
             <input type="text" class="form-control list-group-item" placeholder="Book Info" ng-model="newBook.info">
+                        <br>
+            <label for="">Book Publication Date</label>
             <input type="date" class="form-control list-group-itme" placeholder="Book Publication Date - mm/dd/yyyy" ng-model="newBook.publishedDate">
+                        <br>
+            <label for="">Book Category</label>
             <input type="text" class="form-control list-group-item" placeholder="Category" ng-model="newBook.genre">
-            <p class="input-group-btn">
+            <br>
+            <p class="end">
               <button type="submit" class="btn btn-primary" ng-click="addBook(newBook)">Add Book</button>
             </p>
           </form>

@@ -55,6 +55,7 @@ angular.module('booxApp')
         status: 'Available'
       });
       $scope.newBook = '';
+
     };
 
     $scope.reserveBook = function(book) {
@@ -63,6 +64,11 @@ angular.module('booxApp')
         available: false,
         reservedBy: $scope.getCurrentUser().name,
         status: 'Reserved'
+      });
+
+      $http.post('/api/messages', {
+        to: 'Admin',
+        from: $scope.getCurrentUser().name
       });
     };
 

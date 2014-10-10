@@ -1,0 +1,6 @@
+.boox-link a {
+    color: #f5925b;
+    &:hover {
+        color: darken(#f5925b, 10%);
+    }
+}

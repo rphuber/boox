@@ -1,18 +1,29 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-	<div class="container">
-		<div class="row">
-		      <div class="col-sm-12 col-md-12">
-		      	<h2>This is the edit page</h2>
+	<div class="container-rh">
+		<div class="row-rh">
+		      <div class="col-12 col-12">
+		      
 		      <form class="list-group">
-          <label>Add books to the library</label>
+          <h3>Edit your shared book here:</h3>
+          <br>
+          <label for="">Book Title</label>
           <input type="text" class="form-control list-group-item" ng-model="thisBook.name">
+		  <br>
+          <label for="">Book Author</label>
           <input type="text" class="form-control list-group-item" ng-model="thisBook.author">
+          <br>
+          <label for="">Book Info</label>
           <input type="text" class="form-control list-group-item" ng-model="thisBook.info">
+          <br>
+          <label for="">Book Published Date</label>
           <input type="date" class="form-control list-group-itme" ng-model="thisBook.publishedDate">
+          <br>
+          <label for="">Book Category</label>
           <input type="text" class="form-control list-group-item" ng-model="thisBook.genre">
-				  <p class="input-group-btn">
+          <br>
+				  <p class="end">
 		    		<button type="submit" class="btn btn-primary" ng-click="updateSwapBook(thisBook)">
 		    			Submit
 		    		</button>

@@ -2,42 +2,76 @@
 
   <header class="hero-unit" id="banner">
     <div class="container title-container">
-      <h1>welcome to boox!</h1>
+      <h1>welcome to <span class="boox-title">boox</span>!</h1>
       <p class="lead">your online library and book swap</p>
     </div>
   </header>
 
-<div class="col-md-12">  
-      <div class="col-md-5 col-md-offset-1 col-md-push-6">
-        <h1 class="page-header">Your books to swap:</h1>
+<div class="col-12">  
+      <div class="col-half push-6">
+        <h3>Your books to share:</h3>
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="book in swapBooks | filter: { owner : getCurrentUser().name }">
             <span>{{book.name}}</span>
             <br>
-              <span class="text-muted">{{book.status}}</span>
-              <a ng-click="deleteSwapBook(book)" class="remove">
+            <span class="text-muted" ng-show="{{ book.status == 'Available' }}">{{book.status}}</span>
+            <span class="text-muted" ng-show="{{ book.status == 'Requested' }}">Requested by: {{book.reservedBy}}</span>
+            <span class="text-muted" ng-show="{{ book.status == 'checkedOut' }}">Checked Out by: {{book.reservedBy}}</span>
+            <a ng-show="{{ book.status == 'Requested' }}" ng-click="checkOutSwapBook(book)" class="add">
+                <span class="glyphicon glyphicon-open pull-right"></span>
+              </a>
+              <a ng-show="{{ book.status == 'checkedOut' }}" ng-click="checkInSwapBook(book)" class="add">
+                <span class="glyphicon glyphicon-save pull-right"></span>
+              </a>
+            <a ng-show="{{ book.status == 'Available'}}"ng-click="deleteSwapBook(book)" class="remove">
                 <span class="glyphicon glyphicon-minus pull-right"></span>
               </a>
               <a href="/bookswap/{{swapBooks.indexOf(book)}}" class="info">
                 <span class="glyphicon glyphicon-info-sign pull-right"></span>
               </a>
+              <span class="due" ng-show="{{book.status == 'checkedOut'}}">Due: {{book.dueDate | date:'mediumDate'}}</span>
           </li>
         </ul> 
-          <a href="/bookswapAdd" class="btn btn-success" role="button">
-            <span class="glyphicon glyphicon-plus"></span>
-            Add Book
-          </a>
+          <div class="end">
+            <a href="/bookswapAdd" class="btn btn-success" role="button">
+              <span class="glyphicon glyphicon-plus"></span>
+              Add Book
+            </a>
+          </div>
+          <br>
+
+          <h3>Books shared with you:</h3>
+          <ul class="nav nav-pills">
+            <li class="boox-link"><a ng-click="bookStatus = ''">All</a></li>
+            <li class="boox-link"><a ng-click="bookStatus = 'Requested'">Requested</a></li>
+            <li class="boox-link"><a ng-click="bookStatus = 'checkedOut'">Borrowed</a></li>
+          </ul>
+          <br>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="book in swapBooks | filter: { reservedBy : getCurrentUser().name } | filter : { status: bookStatus }">
+            <span>{{book.name}}</span>
+            <br>
+            <span class="text-muted" ng-show="{{ book.status == 'Available' }}">{{book.status}}</span>
+            <span class="text-muted" ng-show="{{ book.status == 'Requested' }}">Requested from: {{book.owner}}</span>
+            <span class="text-muted" ng-show="{{ book.status == 'checkedOut' }}">Shared by: {{book.owner}}</span>
+              <a href="/bookswap/{{swapBooks.indexOf(book)}}" class="info">
+                <span class="glyphicon glyphicon-info-sign pull-right"></span>
+              </a>
+              <span class="due" ng-show="{{book.status == 'checkedOut'}}">Due: {{book.dueDate | date:'mediumDate'}}</span>
+          </li>
+        </ul> 
       </div>
 
-      <div class="col-md-6 col-md-pull-6"><h1 class="page-header">Available for swapping:</h1>
+      <div class="col-half pull-6"><h3>Available for sharing:</h3>
         <ul class="nav nav-pills" ng-init="reverse = !reverse">
-          <li><a href="" ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
-          <li><a href="" ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
-          <li><a href="" ng-click="predicate = 'status'; reverse = !reverse">Status</a></li>
-        </ul>
+            <li class="boox-link"><a ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
+            <li class="boox-link"><a ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
+            <li class="boox-link"><a ng-click="predicate = 'status'; reverse = !reverse">Status</a></li>
+            <li class="boox-link"><a ng-click="predicate = 'genre'; reverse = !reverse">Category</a></li>
+          </ul>
         <br>
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="book in swapBooks | orderBy: predicate :reverse | filter : { owner : '!' +getCurrentUser().name }" >
+          <li class="list-group-item" ng-repeat="book in swapBooks | orderBy: predicate :reverse | filter : { owner : '!' +getCurrentUser().name } | filter: { reservedBy : '!' + getCurrentUser().name }" >
             <span>{{book.name}}</span>
             <br>
               <span class="text-muted">{{book.status}}</span>

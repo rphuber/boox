@@ -1,5 +1,6 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
+$grid-float-breakpoint: 2000px;
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
@@ -7,9 +8,6 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 /**
  * App-wide Styles
  */
-body {
-	padding-top:70px;
-}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -18,6 +16,21 @@ body {
     padding: 0.2em 0;
 }
 
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+	color: #2c3e50;
+}
+
+.navbar-default .navbar-text{
+	color: #2c3e50;
+}
+
+.navbar-default .navbar-brand {
+	color: #f5925b;
+}
+
+
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
@@ -25,5 +38,18 @@ body {
 @import 'bookRoute/bookRoute.scss';
 @import 'bookswap/bookswap.scss';
 @import 'main/main.scss';
+@import 'sass/advanced/_accordians.scss';
+@import 'sass/advanced/_carousel.scss';
+@import 'sass/advanced/_tabs.scss';
+@import 'sass/basic/_buttons.scss';
+@import 'sass/basic/_feedback.scss';
+@import 'sass/basic/_forms.scss';
+@import 'sass/basic/_grid.scss';
+@import 'sass/basic/_icons.scss';
+@import 'sass/basic/_navigation.scss';
+@import 'sass/basic/_normalize.scss';
+@import 'sass/basic/_typography.scss';
+@import 'sass/settings/_settings.scss';
+@import 'sass/styles.scss';
 @import 'modal/modal.scss';
 // endinjector

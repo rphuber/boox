@@ -1,11 +1,11 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<div class="container-rh">
+  <div class="row-rh">
+    <div class="col-12">
       <h1>Sign up</h1>
     </div>
-    <div class="col-sm-12">
+    <div class="col-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
@@ -59,10 +59,13 @@
           <input type="tel" class="form-control" ng-model="user.phone">
         </div>
 
-        <div>
+        <div class="end">
           <button class="btn btn-default btn-lg btn-login" type="submit">
             Sign up
           </button>
+        </div>
+        <br>
+        <div class="end">
            <p class="redirect">
               <a href="/login">Already a Member?  Sign In Here...</a>
            </p>

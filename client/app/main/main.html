@@ -1,31 +1,34 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
   <header class="hero-unit" id="banner">
-    <div class="container title-container">
-      <h1>welcome to boox!</h1>
+    <div class="container-rh title-container">
+      <h1>welcome to <span class="boox-title">boox</span>!</h1>
       <p class="lead">your online library and book swap</p>
     </div>
   </header>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-10">
-          <div class="col-sm-12 unknownMain" ng-hide="isLoggedIn()">
-            <h3>Welcome to boox...</h3>
-            <p>boox is the way to manage your ever growing stacks of reading materials.  We have organized all the materials available from your organization and taken care of letting them know what books you are interested in borrowing.  Have a book not listed?  List it in the swap area and see if you can exchange it for one from another member that you may have been looking to read.  Please either log in or sign in below.</p>
-      
-            <p><a href="/login" class="btn btn-default btn-lg" role="button">Log In</a>
-            <a href="/signup" class="btn btn-default btn-lg" role="button">Sign Up</a></p>
+    <div class="container-rh">
+      <div class="row-rh">
+        
+          <div class="col-10 center" ng-hide="isLoggedIn()">
+            <div class="unknownMain">
+              <h3>What is <span class="boox-title">boox</span>?</h3>
+              <p>boox is the new way to manage your ever growing stacks of reading materials.  We have organized all the materials available from your organization and taken care of letting them know what books you are interested in borrowing.  Have a book not listed?  List it in the share area and let boox keep track of who has your book and when they will be bringing it back.  Please either log in or sign in below.</p>
+                    
+              <p><a href="/login" class="btn" role="button">Log In</a>
+              <a href="/signup" class="btn" role="button">Sign Up</a></p>
+            </div>
           </div>
-        </div>
+          
+        
       </div>
       
-      <div class="col-md-12" ng-show="isLoggedIn()">  
-        <div class="col-md-5 col-md-offset-1 col-md-push-6">
-          <h1 class="page-header">Your Checkouts:</h1>
+      <div class="col-12" ng-show="isLoggedIn()">  
+        <div class="col-half push-6">
+          <h3>Your Checkouts:</h3>
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="book in books | orderBy: 'status' : reverse" ng-hide="{{book.reservedBy !== getCurrentUser().name}}">
-              <span tooltip="{{book.status}}">{{book.name}}</span>
+              <span>{{book.name}}</span>
               <br>
                 <span ng-hide="{{book.status == 'checkedOut'}}" class="text-muted">{{book.status}}</span>
                 <span ng-show="{{book.status == 'checkedOut'}}" class="text-muted">Due: {{book.dueDate | date: 'mediumDate'}}</span>
@@ -43,16 +46,18 @@
           </ul> 
         </div>
       
-        <div class="col-md-6 col-md-pull-6" ng-show="isLoggedIn()"><h1 class="page-header">Library Books:</h1>
+        <div class="col-half pull-6" ng-show="isLoggedIn()">
+          <h3>Library Books:</h3>
           <ul class="nav nav-pills" ng-init="reverse = !reverse">
-            <li><a href="#" ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
-            <li><a href="#" ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
-            <li><a href="#" ng-click="predicate = 'status'; reverse = !reverse">Status</a></li>
+            <li class="boox-link"><a href="#" ng-click="predicate = 'name'; reverse = !reverse">Title</a></li>
+            <li class="boox-link"><a href="#" ng-click="predicate = 'dateAdded'; reverse = !reverse">Newest</a></li>
+            <li class="boox-link"><a href="#" ng-click="predicate = 'status'; reverse = !reverse">Status</a></li>
+            <li class="boox-link"><a href="#" ng-click="predicate = 'genre'; reverse = !reverse">Category</a></li>
           </ul>
           <br>
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="book in books | orderBy: predicate :reverse" ng-hide="{{book.reservedBy == getCurrentUser().name}}">
-              <span tooltip="{{book.status}}">{{book.name}}</span>
+              <span>{{book.name}}</span>
               <br>
                 <span class="text-muted">{{book.genre}}</span>
                 <a ng-click="reserveBook(book)" class="add" ng-show="{{book.available}}">

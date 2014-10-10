@@ -1,14 +1,25 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-	<div class="col-md-12">
-        <h1 class="page-header">Add books to swap:</h1>
+	<div class="col-12">
+        <h3>Add books to swap:</h3>
+        <br>
 	    <form class="list-group">
+        <label for="">Book Title</label>
     		<input type="text" class="form-control list-group-item" placeholder="Book Title" ng-model="newBook.name">
+        <br>
+        <label for="">Book Author</label>
       		<input type="text" class="form-control list-group-item" placeholder="Book Author" ng-model="newBook.author">
+          <br>
+        <label for="">Book Info</label>
       		<input type="text" class="form-control list-group-item" placeholder="Book Info" ng-model="newBook.info">
+          <br>
+        <label for="">Book Publication Date</label>
       		<input type="date" class="form-control list-group-itme" placeholder="Book Publication Date - mm/dd/yyyy" ng-model="newBook.publishedDate">
+          <br>
+        <label for="">Book Category</label>
       		<input type="text" class="form-control list-group-item" placeholder="Category" ng-model="newBook.genre">
-      		<p class="input-group-btn">
+          <br>
+      		<p class="end">
         		<button type="submit" class="btn btn-primary" ng-click="addSwapBook(newBook)">Add Book</button>
       		</p>
     	</form>

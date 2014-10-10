@@ -1,0 +1,79 @@
+//
+// *--------------------------------------------------------------------------------------------------
+// * 1.0 - Grid
+// *--------------------------------------------------------------------------------------------------
+//
+
+ //* 1.1 - Screen sizes */
+
+ $medium: 1024px;
+ $small: 768px;
+
+ //* 1.2 - columns */
+ $column-count: 12;
+ $gutter: 1em;
+
+ //* 1.3 - Add ons */
+ $small-grid: true; //controls whether you can use grid on small screens
+ $push: true;  // controls whether you can push and pull columns in a row
+
+
+//
+// *--------------------------------------------------------------------------------------------------
+// * 2.0 - Typography
+// *--------------------------------------------------------------------------------------------------
+// 
+
+ //* 2.1 - Colors */
+ $text-color: #333;
+ $link-color: #0f82bd;
+ $hr-color: #ccc;
+ $muted-text-color: lighten($text-color, 30%);
+
+ //* 2.2 - Baseline */
+ $baseline: 1.5em;
+
+ //* 2.3 - Font */
+ $body-font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+
+ //* 2.4 - Sizes */
+ $h1-size: 3.998em;
+ $h2-size: 2.827em;
+ $h3-size: 1.999em;
+ $h4-size: 1.414em;
+ $h5-size: 1em;
+ $h6-size: .707em;
+
+ 
+// 
+// *--------------------------------------------------------------------------------------------------
+// * 3.0 - Buttons
+// *--------------------------------------------------------------------------------------------------
+// 
+
+ $btn-radius: 3px;
+
+ //* 3.1 - Sizes */
+ $btn-small-font-size: .75em;
+ $btn-large-font-size: 2em;
+
+  //* 3.2 - Colors */
+ $btn-default-bg: #dde2d4;
+ $btn-default-text-color: #333;
+
+ $btn-primary-bg: #0f82bd;
+ $btn-primary-text-color: lighten($btn-primary-bg, 50%);
+
+
+//
+// *--------------------------------------------------------------------------------------------------
+// * 3.0 - Form
+// *--------------------------------------------------------------------------------------------------
+//
+
+ $field-border-color: #ccc;
+ $field-error-color: red;
+ $field-required-color: red;
+
+ 
+

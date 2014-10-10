@@ -1,13 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-	<div class="container">
-		<div class="row">
-		      <div class="col-sm-12 col-md-12">
-		        <div class="thumbnail bg-warning">
-		          <div class="caption">
-		            <h2>{{ thisBook.name }}</h2>
-		            <h3>{{ thisBook.author }}</h3>
+	<div class="container-rh">
+		<div class="row-rh">
+		      <div class="col-12 col-12">
+		      
+		          <div class="boox-detail">
+		            <h3>{{ thisBook.name }}</h3>
+		            <h4>By: {{ thisBook.author }}</h4>
 		            <h4>Category: {{ thisBook.genre }}</h4>
 		            <p>{{ thisBook.info }}</p>
 		      		<dl class="dl-horizontal">
@@ -18,12 +18,13 @@
 		            	<dt>Added to Library:</dt>
 		            	<dd>{{ thisBook.dateAdded | date: 'mediumDate' }}</dd>
 		            </dl>
-					<p class="col-sm-offset-10">
-						<a href="#/bookswap" class="btn btn-default" role="button">Return</a>
-						<a ng-show="isAdmin()" href="#/bookswapEdit/{{swapBooks.indexOf(thisBook)}}" class="btn btn-default" role="button">Edit</a>
+					<p class="end">
+						<a href="#/bookswap" class="btn" role="button">Return</a>
+						<a ng-show="thisBook.owner == getCurrentUser().name || isAdmin()" class="btn" role="button" ng-click="deleteSwapBook(thisBook)">Delete</a>
+						<a ng-show="thisBook.owner == getCurrentUser().name || isAdmin()" href="#/bookswapEdit/{{swapBooks.indexOf(thisBook)}}" class="btn" role="button">Edit</a>
 					</p>
 		          </div>
-		        </div>
+		   
 		      </div>
 		</div>
 	</div>

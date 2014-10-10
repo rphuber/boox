@@ -34,6 +34,7 @@ angular.module('booxApp')
         status: 'Available'
       });
       $scope.newBook = '';
+      $location.path( '/bookswap');
     };
 
     $scope.updateSwapBook = function(book) {
@@ -61,6 +62,29 @@ angular.module('booxApp')
 
     $scope.deleteSwapBook = function(book) {
       $http.delete('/api/bookswaps/' + book._id);
+      $location.path( '/bookswap');
+    };
+
+    $scope.checkOutSwapBook = function(book) {
+
+      var requester = book.reservedBy;
+
+      $http.put('/api/bookswaps/' + book._id, {
+        status: 'checkedOut',
+        checkOutBy: requester,
+        dueDate: new Date (+ new Date() + 12096e5)
+      });
+    };
+
+    $scope.checkInSwapBook = function(book) {
+
+      $http.put('/api/bookswaps/' + book._id, {
+        available: true,
+        status: 'Available',
+        checkOutBy: null,
+        reservedBy: 'Available',
+        dueDate: null
+      });
     };
 
     $scope.go = function ( path ) {

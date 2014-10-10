@@ -1,3 +1,5 @@
+
+
 #banner {
     border-bottom: none;
     margin-top: -20px;
@@ -10,11 +12,62 @@
 }
 
 .unknownMain {
-    @extend .jumbotron;
     margin-left: 10%; 
     margin-top: 10%;
-    width: 100%;
-    background-color: #D8CAA8;
+    width: 75%;
+    padding: 10px;
+}
+.logo-image {
+    height: 100px;
+    width: 100px;
+    background-image: url(../../assets/images/booxmenu.png);
+    background-size: cover;
+
+    position:absolute;
+    right:10px;
+    top:3px;
+    width:100px;
+    z-index: 100;
+    -moz-transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+    &:hover {
+        background-image: url(../../assets/images/booxmenu2.png);
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+.boox-link a {
+    color: #f5925b;
+    &:hover {
+        color: darken(#f5925b, 10%);
+    }
+}
+
+.list-group {
+    margin-left: 0;
+}
+
+.nav-pills {
+    color: #f5925b;
+    margin-left: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #f5925b;
+    &:hover {
+        color: darken(#f5925b, 10%);
+    }
+}
+
+.boox-title {
+    color: #f5925b;
 }
 
 .hero-unit {
@@ -86,4 +139,7 @@
 .redirect {
     margin-top: 15px;
     margin-left: 7px;
+    a{
+    color: #f5925b; 
+    }
 }

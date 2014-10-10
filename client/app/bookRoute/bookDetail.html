@@ -1,14 +1,14 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-	<div class="container">
-		<div class="row">
-		      <div class="col-sm-12 col-md-12">
-		        <div class="thumbnail bg-warning">
-		          <div class="caption">
-		            <h2>{{ book.name }}</h2>
-		            <h3>{{ book.author }}</h3>
-		            <h4>Category: {{ book.genre }}</h4>
+	<div class="container-rh">
+		<div class="row-rh">
+		      <div class="col-12">
+		        
+		          <div class="boox-detail">
+		            <h3>{{ book.name }}</h3>
+		            <h4>by: {{ book.author }}</h4>
+		            <h5>Category: {{ book.genre }}</h5>
 		            <p>{{ book.info }}</p>
 		      		<dl class="dl-horizontal">
 		            	<dt>Availability:</dt>
@@ -18,12 +18,12 @@
 		            	<dt>Added to Library:</dt>
 		            	<dd>{{ book.dateAdded | date: 'mediumDate' }}</dd>
 		            </dl>
-					<p class="col-sm-offset-10">
+					<p class="end">
 						<a href="#/" class="btn btn-default" role="button">Return</a>
 						<a ng-show="isAdmin()" href="#/bookEdit/{{books.indexOf(book)}}" class="btn btn-default" role="button">Edit</a>
 					</p>
 		          </div>
-		        </div>
+		        
 		      </div>
 		</div>
 	</div>

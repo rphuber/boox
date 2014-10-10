@@ -43,6 +43,7 @@ angular.module('booxApp')
         reservedBy: 'Available'
       });
       $scope.newBook = '';
+      $location.path( '/admin');
     };
 
 
